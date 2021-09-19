@@ -1,0 +1,1 @@
+exports.getBaseUrl = () => 'https://obmockaspsp.moneyhub.co.uk/api'
