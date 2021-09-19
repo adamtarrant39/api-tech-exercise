@@ -107,7 +107,9 @@ Returns a list of all user transactions for a specified user ID.
 
 #### Exercise questions
 1. How would you implement pagination of transactions in the new route?
-- I would implement pagination in this endpoint by adding a `page` query parameter which I would pass through to the Open Banking endpoint `page` query param. If I did this, I would be sure to return the `TotalPages` property for the consumer of the API. I would also add a filter params `fromBookingDateTime` and `toBookingDateTime` to make pagination more customisable in our API.
+- I would implement pagination in this endpoint by adding a `page` query parameter which I would pass through to the Open Banking endpoint `page` query param. If I did this, I would be sure to return the `TotalPages` property for the consumer of the API.
+- In addition to this, I would also look at including a `limit` parameter, and slice part of the array returned from the open banking API, or make multiple calls in order retrieve the desired number of transaction up to a reasonable limit. This would need to work with the `page` parameter in order to retrieve the correct results. For example, if `limit` was 10 and the `page` was 2, I would need to make I return results 11-20 in the array returned from the Open Banking API. I would also need to test the Open Banking API further to ensure results were returned in a consistent order to make my pagination returns the correct results.
+- I would also add a filter params `fromBookingDateTime` and `toBookingDateTime` to make pagination more customisable in our API.
 
 2. What else would you have liked to improve given more time?
 - Make API server HTTPs 
