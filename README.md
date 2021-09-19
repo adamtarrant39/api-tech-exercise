@@ -100,8 +100,21 @@ This repo represents the API server where you will be writing your code.
 ### `/docs`
 
 Route containing swagger docs
+
 ### `GET /users/{userId}/transactions`
 
-(To be implemented)
+Returns a list of all user transactions for a specified user ID.
+
+#### Exercise questions
+1. How would you implement pagination of transactions in the new route?
+I would implement pagination in this endpoint by adding a `page` query parameter which I would pass through to the Open Banking endpoint `page` query param. If I did this, I would be sure to return the `TotalPages` property for the consumer of the API.
+
+I would also add a filter params `fromBookingDateTime` and `toBookingDateTime` to make pagination more customisable in our API.
+
+2. What else would you have liked to improve given more time?
+- Make API server HTTPs 
+- Add authorisation for the API server e.g. using a session or API key
+- Add error handling to deal with errors from 3rd party APIs
+- Add user input validation e.g. validate user ID length
 
 
